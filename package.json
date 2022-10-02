@@ -9,7 +9,7 @@
     "bootstrap": "lerna bootstrap && lerna link",
     "clean": "lerna run clean --parallel",
     "build-all": "sh ./scripts/build.sh",
-    "build-controller": "yarn workspace @rarible/flow-sdk run build",
+    "build-controller": "yarn workspace @vitalbadjo/market-controller run build",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx . --fix",
     "release": "lerna publish from-package",
