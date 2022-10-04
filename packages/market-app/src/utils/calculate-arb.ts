@@ -1,6 +1,6 @@
 import { Market, MarketData } from "@vitalbadjo/market-controller/build/typings"
 import BigNumber from "bignumber.js"
-import { EXCLUDE_ASSETS } from "../config"
+import { APP_CONFIG } from "../config"
 
 export function calculateArb(data: MarketData[][], percentageLimit: string): CalculatedData {
 	const pLBn = new BigNumber(percentageLimit)
@@ -11,7 +11,7 @@ export function calculateArb(data: MarketData[][], percentageLimit: string): Cal
 	return Array.from<Symbol>(symbols)
 		.filter(s => {
 			let result = true
-			EXCLUDE_ASSETS.forEach(asset => {
+			APP_CONFIG.globalExcludeAssets.forEach(asset => {
 				if (s.endsWith(asset.toLowerCase()) || s.startsWith(asset.toLowerCase())) {
 					result = false
 				}

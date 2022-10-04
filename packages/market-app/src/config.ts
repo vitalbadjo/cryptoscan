@@ -1,2 +1,13 @@
-export const PERCENTAGE_LIMIT = "1"
-export const EXCLUDE_ASSETS = ["USDC", "EUR", "TRY", "RUB", "USD", "UAH", "GBP"]
+import { Market } from "@vitalbadjo/market-controller"
+
+type AppConfig = {
+	marketsToRetrieve: Market[]
+	goodPercentLimit: string
+	globalExcludeAssets: string[]
+}
+
+export const APP_CONFIG: AppConfig = {
+	marketsToRetrieve: ["Binance", "Huobi"],
+	goodPercentLimit: "1",
+	globalExcludeAssets: ["USDC", "EUR", "TRY", "RUB", "USD", "UAH", "GBP"],
+}

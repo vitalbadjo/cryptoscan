@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { controllers, getMarketRates } from "@vitalbadjo/market-controller"
 import { calculateArb, CalculatedData } from "../../utils/calculate-arb"
-import { PERCENTAGE_LIMIT } from "../../config"
+import { APP_CONFIG } from "../../config"
 import { DataGrid, GridColDef } from "@mui/x-data-grid"
 
 const marketNames = Object.keys(controllers)
@@ -15,9 +15,9 @@ export default function DataTable() {
 
 	useEffect(() => {
 		let mounted = true
-		getMarketRates(["Binance", "Huobi"]).then(d => {
+		getMarketRates(APP_CONFIG.marketsToRetrieve).then(d => {
 			if (mounted) {
-				setData(calculateArb(d, PERCENTAGE_LIMIT))
+				setData(calculateArb(d, APP_CONFIG.goodPercentLimit))
 			}
 		})
 		return () => {
