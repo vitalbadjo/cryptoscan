@@ -20,7 +20,9 @@
     "lint-staged": "lint-staged",
     "publish-all": "lerna publish from-package",
     "prepare": "husky install",
-    "precommit": "run-s verify lint"
+    "precommit": "run-s verify lint",
+    "start-app": "yarn workspace @vitalbadjo/market-app run start",
+    "build-app": "yarn workspace @vitalbadjo/market-app run build"
   },
   "commitlint": {
     "extends": [
